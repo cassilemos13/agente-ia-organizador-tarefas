@@ -135,8 +135,41 @@ def mudar_status_tarefa(nome_da_task: str, novo_status: str) -> str:
     except Exception as e:
         return f"❌ Erro: {str(e)}"
 
+
+def remover_tarefa(nome_da_task: str):
+    try:
+        client = TrelloClient(
+            api_key=API_KEY,
+            api_secret=API_SECRET,
+            token=TOKEN
+        )
+
+        boards = client.list_boards()
+        meu_board = next(
+            (b for b in boards if b.name == "DIO"),
+            None
+        )
+
+        if not meu_board:
+            return "❌ Quadro DIO não encontrado."
+
+        listas = meu_board.list_lists()
+
+        for lista in listas:
+            cards = lista.list_cards()
+
+            for card in cards:
+                if card.name.strip().lower() == nome_da_task.strip().lower():
+                    card.delete()
+                    return f"✅ Tarefa '{nome_da_task}' removida com sucesso!"
+
+        return f"❌ Tarefa '{nome_da_task}' não encontrada."
+
+    except Exception as e:
+        return f"❌ Erro ao remover tarefa: {str(e)}"
+
 root_agent = Agent(
-    model='gemini-2.5-flash',
+model='gemini-3.5-flash-lite',
     name='root_agent',
     description='Agente de Organização de Tarefas',
     instruction="""
@@ -154,5 +187,11 @@ root_agent = Agent(
           5. Mudar o status da tarefa (ex: de "A Fazer" para "Em Andamento" e de "Em Andamento" para "Concluído")
           6. Gerar contexto temporal (data e hora atual) para organizar as tarefas do dia
 """,
-    tools=[get_temporal_context, adicionar_tarefa, listar_tarefas, mudar_status_tarefa],
+    tools=[
+    get_temporal_context,
+    adicionar_tarefa,
+    listar_tarefas,
+    mudar_status_tarefa,
+    remover_tarefa
+],
 )

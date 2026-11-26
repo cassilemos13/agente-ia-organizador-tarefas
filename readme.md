@@ -1,110 +1,147 @@
-<!--START_SECTION:header-->
-<div align="center">
-  <p align="center">
-    <img 
-      alt="DIO Education" 
-      src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/logo.webp" 
-      width="100px" 
-    />
-    <h1>Título do Curso ou Projeto</h1>
-  </p>
-</div>
-<!--END_SECTION:header-->
+# 🤖 Agente IA – Organizador de Tarefas
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
-  <a href="NIVEL"><img  src="https://img.shields.io/static/v1?label=Nivel&message=Basico&color=E94D5F&labelColor=202024" alt="Nivel"></a>
+Agente inteligente desenvolvido em Python, utilizando Google Agent Development Kit (ADK), Gemini e integração com a API do Trello para organizar tarefas por meio de conversas em linguagem natural.
 
-</p>
+## 🎯 Objetivo do projeto
 
-<!--  -->
-<table align="center">
-<thead>
-  <tr>
-    <td>
-        <p align="center">Expert</p>
-        <a href="https://github.com/felipeAguiarCode">
-        <img src="https://avatars0.githubusercontent.com/u/37452836?v=3&s=115" alt="@felipeAguiarCode"><br>
-      </a>
-    </td>
-    <td colspan="3">
-    <p>🎉 10y+ em sistemas comerciais com .NET C# e NODE.JS.
-      <br/>
-     🌟 Desenvolvedor fullstack - Coordenador de educação na DIO
-      <br/>
-    👨‍💻 Foco em front-ends SPA com React, Angular e Vue.js
-    </p>
-      <a 
-      href="https://www.linkedin.com/in/felipe-me/" 
-      align="center">
-           <img 
-            align="center" 
-            alt="Material de Apoio" 
-            src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-            >
-        </a>
-        <a href="https://www.instagram.com/felipeaguiar.exe/" target="_blank">
-            <img 
-              align="center" 
-              alt="Instagram" 
-              src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
-            >
-        </a>
-    </td>
-  </tr>
-</thead>
-</table>
-<!--  -->
+O objetivo é desenvolver um agente de inteligência artificial capaz de auxiliar na organização das atividades diárias, criando, consultando, movimentando e removendo cartões diretamente em um quadro do Trello.
 
-<br/>
-<br/>
+## 🛠️ Tecnologias utilizadas
 
-## 💻 Sobre o Projeto
+- Python
+- Google Agent Development Kit (ADK)
+- Google Gemini
+- Trello API
+- Biblioteca py-trello
+- python-dotenv
 
-Vamos construir uma página spa, responsiva, para usar em diversos tipos de micro, pequena e média empresas. Contém as seguintes seções: Header, Navigation, Home, Sobre, Serviços, Depoimentos, Contato e Footer que faz xxx e yyy
+## ⚙️ Funcionalidades do agente
 
-## 📚 Pré-requisitos de Habilidades e Níveis de Conhecimento
+O agente possui cinco ferramentas principais:
 
-Antes de ingressar neste conteúdo, é necessário possuir conhecimento prévio nas seguintes áreas:
+1. **Consultar data e horário:** obtém o contexto temporal atual para organizar as atividades do dia.
+2. **Adicionar tarefas:** cria cartões no quadro do Trello com nome e descrição.
+3. **Listar tarefas:** consulta as atividades cadastradas, permitindo filtrar por status.
+4. **Alterar status:** movimenta os cartões entre as listas A Fazer, Em Andamento e Concluído.
+5. **Remover tarefas:** localiza um cartão pelo nome e realiza sua exclusão do Trello.
 
-- [habilidades ou conhecimentos prévios necessários] | [Básico, Intermediário, Avançado ou Especialista]
+## 📋 Organização do quadro Trello
 
-- _Exemplo_:
+O agente utiliza um quadro chamado DIO, organizado em três listas:
 
-  - Java | Básico
-  - Gerenciamento de pacotes | Básico
-  -
+- A Fazer
+- Em andamento
+- Concluído
 
-- [Outros pré-requisitos, se aplicável]
+## 🚀 Como executar o projeto
 
-- _Exemplo_:
-  - Lógica de programação
-  - Javascript
+### 1. Pré-requisitos
 
-## 🛠️ Habilidades e Sub-habilidades que vamos aprender neste conteúdo
+- Python instalado.
+- Git instalado.
+- Conta no Trello.
+- Chave de API e token do Trello.
+- Chave de API do Google Gemini.
 
-- [Lista das habilidades principais a serem desenvolvidas]
+### 2. Clonar o repositório
 
-  - [Subhabilidades relacionadas, se aplicável]
+```bash
+git clone https://github.com/cassilemos13/agente-ia-organizador-tarefas.git
+cd agente-ia-organizador-tarefas
+```
 
-- _Exemplo_:
-  - Java
-    - Api Rest
+### 3. Criar ambiente virtual
 
-## 🎯 Objetivos e Resultados Esperados
+```bash
+python -m venv .venv
+```
 
-Após a conclusão do curso/projeto, os estudantes estarão aptos a:
+Ativar no Windows PowerShell:
 
-- [Descrição do que os estudantes serão capazes de fazer]
-- [Projetos ou soluções que os estudantes estarão aptos a construir]
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
-<!--START_SECTION:footer-->
+### 4. Instalar dependências
 
-<br />
-<br />
+```bash
+pip install -r requirements.txt
+```
 
-<p align="center">
-  <a href="https://www.dio.me/" target="_blank">
-    <img align="center" src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/footer.png" alt="banner"/>
-  </a>
-</p>
+### 5. Configurar as credenciais
+
+Acesse a pasta:
+
+`agents/agent04/agenttaskmanager/`
+
+Faça uma cópia do arquivo `.env.exemplo` e renomeie a cópia para `.env`.
+
+Preencha as variáveis com suas próprias credenciais:
+
+```env
+GOOGLE_GENAI_USE_VERTEXAI=0
+GOOGLE_API_KEY=sua-chave-google
+TRELLO_API_KEY=sua-chave-trello
+TRELLO_API_SECRET=seu-segredo-trello
+TRELLO_TOKEN=seu-token-trello
+```
+
+**Importante:** nunca publique o arquivo `.env` ou compartilhe suas credenciais. O arquivo está protegido pelo `.gitignore`.
+
+### 6. Executar o agente
+
+Na raiz do projeto, execute:
+
+```bash
+adk web agents/agent04/agenttaskmanager
+```
+
+O ADK Web será disponibilizado localmente em:
+
+`http://127.0.0.1:8000`
+
+## ✨ Melhoria implementada
+
+Como melhoria do projeto, foi desenvolvida a ferramenta `remover_tarefa()`, permitindo que o agente exclua tarefas específicas diretamente do quadro do Trello.
+
+A ferramenta percorre as listas do quadro, identifica o cartão pelo nome e realiza a exclusão, retornando uma mensagem de confirmação ou erro.
+
+## 🧪 Testes realizados
+
+Foram realizados testes práticos utilizando o ADK Web e o quadro real do Trello:
+
+- Criação de uma tarefa de estudo de Python.
+- Consulta das tarefas cadastradas.
+- Alteração do status de A Fazer para Em Andamento.
+- Criação de uma tarefa de teste para exclusão.
+- Exclusão da tarefa de teste.
+- Verificação da permanência das demais tarefas no quadro.
+
+Os testes confirmaram o funcionamento das operações implementadas.
+
+## 📁 Estrutura do projeto
+
+```text
+agente-ia-organizador-tarefas/
+│
+├── agents/
+│   └── agent04/
+│       └── agenttaskmanager/
+│           ├── __init__.py
+│           ├── agent.py
+│           ├── .env.exemplo
+│           └── .gitignore
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
+
+## 👩‍💻 Autora
+
+Projeto desenvolvido por **Cassiane Lemos**, como parte dos estudos práticos de inteligência artificial e desenvolvimento de agentes com Python, na plataforma DIO.
+
+---
+
+**Projeto: Agente IA – Organizador de Tarefas**  
+Integração entre inteligência artificial e organização de atividades com Trello.
